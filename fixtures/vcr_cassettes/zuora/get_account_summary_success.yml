@@ -1,0 +1,141 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rest.zuora.com/v1/accounts/2c92a0fd5c832adb015c8def9fd9081c/summary
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.4.1 (2017-03-22))
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Fri, 09 Jun 2017 17:38:30 GMT
+      Content-Type:
+      - application/json
+      Apiaccesskeyid:
+      - "{ZUORA_USERNAME}"
+      Apisecretaccesskey:
+      - "{ZUORA_PASSWORD}"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Server:
+      - Zuora App
+      X-Request-Id:
+      - 6c962773-d167-443d-a6c4-d39492a539dd
+      X-Kong-Upstream-Latency:
+      - '174'
+      X-Kong-Proxy-Latency:
+      - '0'
+      Expires:
+      - Fri, 09 Jun 2017 17:38:31 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
+      Date:
+      - Fri, 09 Jun 2017 17:38:31 GMT
+      Content-Length:
+      - '2204'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - ZSession={ZUORA_SESSION_ID}; Path=/; Secure; HttpOnly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "basicInfo" : {
+            "id" : "2c92a0fd5c832adb015c8def9fd9081c",
+            "name" : "Test Account",
+            "accountNumber" : "Z00324059",
+            "balance" : 0E-9,
+            "lastInvoiceDate" : null,
+            "lastPaymentDate" : null,
+            "lastPaymentAmount" : null,
+            "currency" : "USD",
+            "status" : "Active",
+            "batch" : "Batch1",
+            "billCycleDay" : 15,
+            "invoiceDeliveryPrefsPrint" : false,
+            "invoiceDeliveryPrefsEmail" : false,
+            "additionalEmailAddresses" : [ ],
+            "Bucket2__c" : null,
+            "Bucket3__c" : null,
+            "Bucket4__c" : null,
+            "Bucket1__c" : null,
+            "memberid__c" : null,
+            "LineofBusiness__c" : null,
+            "BucketTotal__c" : null,
+            "BusinessUnit__c" : null,
+            "VATNumber__c" : null,
+            "ProfileGroup__c" : null,
+            "LatestDunningEmailSubject__c" : null,
+            "TestAccountField__c" : null,
+            "SuppressDunning__c" : null,
+            "ACHVerificationCode__c" : null,
+            "publisher__c" : null,
+            "DellAffinityNo__c" : null,
+            "ACHVerificationTimestamp__c" : null,
+            "defaultPaymentMethod" : {
+              "id" : "2c92a0fd5c832adb015c8def9fff0822",
+              "paymentMethodType" : "CreditCard",
+              "creditCardNumber" : "************1111",
+              "creditCardExpirationMonth" : 12,
+              "creditCardExpirationYear" : 2099,
+              "creditCardType" : "Visa"
+            }
+          },
+          "billToContact" : {
+            "id" : "2c92a0fd5c832adb015c8def9fe5081d",
+            "firstName" : "Test",
+            "lastName" : "User",
+            "address1" : null,
+            "address2" : null,
+            "city" : null,
+            "county" : null,
+            "state" : "Texas",
+            "zipCode" : null,
+            "country" : "United States",
+            "workEmail" : null,
+            "workPhone" : null,
+            "taxRegion" : null,
+            "fax" : null,
+            "State2__c" : null
+          },
+          "soldToContact" : {
+            "id" : "2c92a0fd5c832adb015c8def9fed081f",
+            "firstName" : "Test",
+            "lastName" : "User",
+            "address1" : null,
+            "address2" : null,
+            "city" : null,
+            "county" : null,
+            "state" : "Texas",
+            "zipCode" : null,
+            "country" : "United States",
+            "workEmail" : null,
+            "workPhone" : null,
+            "taxRegion" : null,
+            "fax" : null,
+            "State2__c" : null
+          },
+          "taxInfo" : null,
+          "subscriptions" : [ ],
+          "invoices" : [ ],
+          "payments" : [ ],
+          "usage" : [ ],
+          "success" : true
+        }
+    http_version: 
+  recorded_at: Fri, 09 Jun 2017 17:38:31 GMT
+recorded_with: VCR 3.0.3

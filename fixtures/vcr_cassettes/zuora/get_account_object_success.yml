@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rest.zuora.com/v1/object/account/2c92a0fe5c7d8185015c8defa5374aa8
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.4.1 (2017-03-22))
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Fri, 09 Jun 2017 17:38:31 GMT
+      Content-Type:
+      - application/json
+      Apiaccesskeyid:
+      - "{ZUORA_USERNAME}"
+      Apisecretaccesskey:
+      - "{ZUORA_PASSWORD}"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - kong/0.9.9
+      X-Request-Id:
+      - 4a535982-8e4b-4c04-99da-d11ca7f35b9e
+      X-Kong-Upstream-Latency:
+      - '98'
+      X-Kong-Proxy-Latency:
+      - '0'
+      Expires:
+      - Fri, 09 Jun 2017 17:38:32 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
+      Date:
+      - Fri, 09 Jun 2017 17:38:32 GMT
+      Content-Length:
+      - '662'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"AccountNumber":"Z00324060","AllowInvoiceEdit":false,"InvoiceTemplateId":"2c92a0fb49377eae0149505ce4814ece","AutoPay":false,"InvoiceDeliveryPrefsPrint":false,"UpdatedDate":"2017-06-09T13:38:31.000-04:00","CreditBalance":0,"BillCycleDay":15,"BcdSettingOption":"ManualSet","PaymentTerm":"Due
+        Upon Receipt","SuppressDunning__c":"false","Batch":"Batch1","CreatedById":"4028e487327fd45a0132840d6f4c3135","CreatedDate":"2017-06-09T13:38:31.000-04:00","Name":"Test
+        Account","Balance":0,"Id":"2c92a0fe5c7d8185015c8defa5374aa8","InvoiceDeliveryPrefsEmail":false,"Currency":"USD","Status":"Draft","TotalInvoiceBalance":0,"UpdatedById":"4028e487327fd45a0132840d6f4c3135"}
+
+'
+    http_version: 
+  recorded_at: Fri, 09 Jun 2017 17:38:32 GMT
+recorded_with: VCR 3.0.3

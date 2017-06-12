@@ -1,0 +1,223 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://rest.zuora.com/v1/object/account/2c92a0fd5c832adb015c8def9fd9081c
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.4.1 (2017-03-22))
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Fri, 09 Jun 2017 17:38:32 GMT
+      Content-Type:
+      - application/json
+      Apiaccesskeyid:
+      - "{ZUORA_USERNAME}"
+      Apisecretaccesskey:
+      - "{ZUORA_PASSWORD}"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - kong/0.9.9
+      X-Request-Id:
+      - 13ee5884-cbc3-4803-8948-db99ac4436fc
+      X-Kong-Upstream-Latency:
+      - '262'
+      X-Kong-Proxy-Latency:
+      - '0'
+      Expires:
+      - Fri, 09 Jun 2017 17:38:32 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
+      Date:
+      - Fri, 09 Jun 2017 17:38:32 GMT
+      Content-Length:
+      - '57'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"id":"2c92a0fd5c832adb015c8def9fd9081c","success":true}
+
+'
+    http_version: 
+  recorded_at: Fri, 09 Jun 2017 17:38:32 GMT
+- request:
+    method: get
+    uri: https://rest.zuora.com/v1/object/account/2c92a0fd5c832adb015c8def9fd9081c
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.4.1 (2017-03-22))
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Fri, 09 Jun 2017 17:38:32 GMT
+      Content-Type:
+      - application/json
+      Apiaccesskeyid:
+      - "{ZUORA_USERNAME}"
+      Apisecretaccesskey:
+      - "{ZUORA_PASSWORD}"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - kong/0.9.9
+      X-Request-Id:
+      - 5a5b0781-f65c-463b-a032-71e7b4ff47a8
+      X-Kong-Upstream-Latency:
+      - '84'
+      X-Kong-Proxy-Latency:
+      - '0'
+      Expires:
+      - Fri, 09 Jun 2017 17:38:33 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
+      Date:
+      - Fri, 09 Jun 2017 17:38:33 GMT
+      Content-Length:
+      - '36'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"records":[],"size":0,"done":true}
+
+'
+    http_version: 
+  recorded_at: Fri, 09 Jun 2017 17:38:33 GMT
+- request:
+    method: delete
+    uri: https://rest.zuora.com/v1/object/account/2c92a0fe5c7d8185015c8defa5374aa8
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.4.1 (2017-03-22))
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Fri, 09 Jun 2017 17:38:33 GMT
+      Content-Type:
+      - application/json
+      Apiaccesskeyid:
+      - "{ZUORA_USERNAME}"
+      Apisecretaccesskey:
+      - "{ZUORA_PASSWORD}"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - kong/0.9.9
+      X-Request-Id:
+      - 5a6fc2fc-2b07-46fd-853a-35c61b8fc770
+      X-Kong-Upstream-Latency:
+      - '200'
+      X-Kong-Proxy-Latency:
+      - '0'
+      Expires:
+      - Fri, 09 Jun 2017 17:38:33 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
+      Date:
+      - Fri, 09 Jun 2017 17:38:33 GMT
+      Content-Length:
+      - '57'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"id":"2c92a0fe5c7d8185015c8defa5374aa8","success":true}
+
+'
+    http_version: 
+  recorded_at: Fri, 09 Jun 2017 17:38:33 GMT
+- request:
+    method: get
+    uri: https://rest.zuora.com/v1/object/account/2c92a0fe5c7d8185015c8defa5374aa8
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.4.1 (2017-03-22))
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Fri, 09 Jun 2017 17:38:33 GMT
+      Content-Type:
+      - application/json
+      Apiaccesskeyid:
+      - "{ZUORA_USERNAME}"
+      Apisecretaccesskey:
+      - "{ZUORA_PASSWORD}"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - kong/0.9.9
+      X-Request-Id:
+      - 64cf96fb-47c0-49f1-9df3-28fd8f714843
+      X-Kong-Upstream-Latency:
+      - '289'
+      X-Kong-Proxy-Latency:
+      - '0'
+      Expires:
+      - Fri, 09 Jun 2017 17:38:33 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
+      Date:
+      - Fri, 09 Jun 2017 17:38:33 GMT
+      Content-Length:
+      - '36'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"records":[],"size":0,"done":true}
+
+'
+    http_version: 
+  recorded_at: Fri, 09 Jun 2017 17:38:33 GMT
+recorded_with: VCR 3.0.3

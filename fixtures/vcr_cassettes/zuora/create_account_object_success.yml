@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://rest.zuora.com/v1/object/account
+    body:
+      encoding: UTF-8
+      string: '{"Batch":"Batch1","BillCycleDay":15,"Currency":"USD","Name":"Test Account","PaymentTerm":"Due
+        Upon Receipt","Status":"Draft"}'
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.4.1 (2017-03-22))
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Fri, 09 Jun 2017 17:38:31 GMT
+      Content-Type:
+      - application/json
+      Apiaccesskeyid:
+      - "{ZUORA_USERNAME}"
+      Apisecretaccesskey:
+      - "{ZUORA_PASSWORD}"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - kong/0.9.9
+      X-Request-Id:
+      - 5c7bf3bb-9808-4343-9843-b3bac54d3445
+      X-Kong-Upstream-Latency:
+      - '363'
+      X-Kong-Proxy-Latency:
+      - '0'
+      Expires:
+      - Fri, 09 Jun 2017 17:38:31 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
+      Date:
+      - Fri, 09 Jun 2017 17:38:31 GMT
+      Content-Length:
+      - '57'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"Success":true,"Id":"2c92a0fe5c7d8185015c8defa5374aa8"}
+
+'
+    http_version: 
+  recorded_at: Fri, 09 Jun 2017 17:38:31 GMT
+recorded_with: VCR 3.0.3

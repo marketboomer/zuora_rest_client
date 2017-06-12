@@ -1,0 +1,149 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rest.zuora.com/v1/accounts/2c92a0fd5c832adb015c8def9fd9081c
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.4.1 (2017-03-22))
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip,deflate
+      Date:
+      - Fri, 09 Jun 2017 17:38:30 GMT
+      Content-Type:
+      - application/json
+      Apiaccesskeyid:
+      - "{ZUORA_USERNAME}"
+      Apisecretaccesskey:
+      - "{ZUORA_PASSWORD}"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Server:
+      - Zuora App
+      X-Request-Id:
+      - 2256a6e6-e413-4b67-b23f-3aa3b97e90dc
+      X-Kong-Upstream-Latency:
+      - '59'
+      X-Kong-Proxy-Latency:
+      - '0'
+      Expires:
+      - Fri, 09 Jun 2017 17:38:30 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
+      Date:
+      - Fri, 09 Jun 2017 17:38:30 GMT
+      Content-Length:
+      - '2305'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - ZSession={ZUORA_SESSION_ID}; Path=/; Secure; HttpOnly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "basicInfo" : {
+            "id" : "2c92a0fd5c832adb015c8def9fd9081c",
+            "name" : "Test Account",
+            "accountNumber" : "Z00324059",
+            "notes" : null,
+            "status" : "Active",
+            "crmId" : null,
+            "batch" : "Batch1",
+            "invoiceTemplateId" : "2c92a0fb49377eae0149505ce4814ece",
+            "communicationProfileId" : null,
+            "Bucket2__c" : null,
+            "Bucket3__c" : null,
+            "Bucket4__c" : null,
+            "Bucket1__c" : null,
+            "memberid__c" : null,
+            "LineofBusiness__c" : null,
+            "BucketTotal__c" : null,
+            "BusinessUnit__c" : null,
+            "VATNumber__c" : null,
+            "ProfileGroup__c" : null,
+            "LatestDunningEmailSubject__c" : null,
+            "TestAccountField__c" : null,
+            "SuppressDunning__c" : null,
+            "ACHVerificationCode__c" : null,
+            "publisher__c" : null,
+            "DellAffinityNo__c" : null,
+            "ACHVerificationTimestamp__c" : null
+          },
+          "billingAndPayment" : {
+            "billCycleDay" : 15,
+            "currency" : "USD",
+            "paymentTerm" : "Due Upon Receipt",
+            "paymentGateway" : null,
+            "invoiceDeliveryPrefsPrint" : false,
+            "invoiceDeliveryPrefsEmail" : false,
+            "additionalEmailAddresses" : [ ]
+          },
+          "metrics" : {
+            "balance" : 0E-9,
+            "totalInvoiceBalance" : 0E-9,
+            "creditBalance" : 0E-9,
+            "contractedMrr" : 0E-9
+          },
+          "billToContact" : {
+            "address1" : null,
+            "address2" : null,
+            "city" : null,
+            "country" : "United States",
+            "county" : null,
+            "fax" : null,
+            "firstName" : "Test",
+            "homePhone" : null,
+            "lastName" : "User",
+            "mobilePhone" : null,
+            "nickname" : null,
+            "otherPhone" : null,
+            "otherPhoneType" : null,
+            "personalEmail" : null,
+            "state" : "Texas",
+            "taxRegion" : null,
+            "workEmail" : null,
+            "workPhone" : null,
+            "zipCode" : null,
+            "State2__c" : null
+          },
+          "soldToContact" : {
+            "address1" : null,
+            "address2" : null,
+            "city" : null,
+            "country" : "United States",
+            "county" : null,
+            "fax" : null,
+            "firstName" : "Test",
+            "homePhone" : null,
+            "lastName" : "User",
+            "mobilePhone" : null,
+            "nickname" : null,
+            "otherPhone" : null,
+            "otherPhoneType" : null,
+            "personalEmail" : null,
+            "state" : "Texas",
+            "taxRegion" : null,
+            "workEmail" : null,
+            "workPhone" : null,
+            "zipCode" : null,
+            "State2__c" : null
+          },
+          "taxInfo" : null,
+          "success" : true
+        }
+    http_version: 
+  recorded_at: Fri, 09 Jun 2017 17:38:30 GMT
+recorded_with: VCR 3.0.3
