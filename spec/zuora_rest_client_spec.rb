@@ -9,8 +9,8 @@ describe ZuoraRestClient do
   it 'constructs a Zuora client' do
     VCR.use_cassette('zuora/initialize_client') do |cassette|
       verify_env_is_set if cassette.originally_recorded_at.nil?
-      expect { $client = ZuoraRestClient::Client.new(ENV['ZUORA_RUBY_CLIENT_RSPEC_USERNAME'],
-          ENV['ZUORA_RUBY_CLIENT_RSPEC_PASSWORD'], :production,
+      expect { $client = ZuoraRestClient::Client.new(ENV['ZUORA_REST_CLIENT_RSPEC_USERNAME'],
+          ENV['ZUORA_REST_CLIENT_RSPEC_PASSWORD'], :production,
           log: true, log_level: :debug) }.to_not raise_error
     end
   end

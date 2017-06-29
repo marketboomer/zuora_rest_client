@@ -20,8 +20,8 @@ $client = nil
 VCR.configure do |c|
   c.cassette_library_dir = 'fixtures/vcr_cassettes'
   c.hook_into :webmock
-  c.filter_sensitive_data('{ZUORA_USERNAME}') { ENV['ZUORA_RUBY_CLIENT_RSPEC_USERNAME'] } if !ENV['ZUORA_RUBY_CLIENT_RSPEC_USERNAME'].nil?
-  c.filter_sensitive_data('{ZUORA_PASSWORD}') { ENV['ZUORA_RUBY_CLIENT_RSPEC_PASSWORD'] } if !ENV['ZUORA_RUBY_CLIENT_RSPEC_PASSWORD'].nil?
+  c.filter_sensitive_data('{ZUORA_USERNAME}') { ENV['ZUORA_REST_CLIENT_RSPEC_USERNAME'] } if !ENV['ZUORA_REST_CLIENT_RSPEC_USERNAME'].nil?
+  c.filter_sensitive_data('{ZUORA_PASSWORD}') { ENV['ZUORA_REST_CLIENT_RSPEC_PASSWORD'] } if !ENV['ZUORA_REST_CLIENT_RSPEC_PASSWORD'].nil?
   c.filter_sensitive_data('{ZUORA_SESSION_ID}') do |interaction|
     interaction.response.headers['Set-Cookie']&.map { |set_cookie_header| HTTP::Cookie.parse(set_cookie_header,interaction.request.uri) } \
         &.flatten&.select { |cookie| cookie.name == 'ZSession' }&.first&.value
@@ -33,10 +33,9 @@ VCR.configure do |c|
 end
 
 def verify_env_is_set
-  %w( ZUORA_RUBY_CLIENT_RSPEC_USERNAME
-      ZUORA_RUBY_CLIENT_RSPEC_PASSWORD
-      ZUORA_RUBY_CLIENT_RSPEC_ENDPOINT
-      ZUORA_RUBY_CLIENT_RSPEC_AQUA_PARTNER ).each do |env|
+  %w( ZUORA_REST_CLIENT_RSPEC_USERNAME
+      ZUORA_REST_CLIENT_RSPEC_PASSWORD
+      ZUORA_REST_CLIENT_RSPEC_AQUA_PARTNER ).each do |env|
     raise "ENV['#{env}'] is unknown" if ENV[env].nil?
   end
 end
