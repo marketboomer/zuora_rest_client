@@ -159,6 +159,7 @@ module ZuoraRestClient
       if use_api_proxy
         rest_endpoint_uri.path = '/'
         rest_endpoint_uri.port = @options[:api_proxy_port] || 443
+        rest_post('/connections')
       end
       Faraday.new(url: rest_endpoint_uri.to_s) do |faraday|
         faraday.use FaradayMiddleware::FollowRedirects
