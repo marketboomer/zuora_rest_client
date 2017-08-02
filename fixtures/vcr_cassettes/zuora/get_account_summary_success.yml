@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://rest.zuora.com/v1/accounts/2c92a0fd5c832adb015c8def9fd9081c/summary
+    uri: https://rest.zuora.com/v1/accounts/2c92a0fc5d8298f6015da36b14df1d04/summary
     body:
       encoding: UTF-8
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       Accept-Encoding:
       - gzip,deflate
       Date:
-      - Fri, 09 Jun 2017 17:38:30 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Content-Type:
       - application/json
       Apiaccesskeyid:
@@ -31,19 +31,19 @@ http_interactions:
       Server:
       - Zuora App
       X-Request-Id:
-      - 6c962773-d167-443d-a6c4-d39492a539dd
+      - 1611a524-1eac-4ca3-aea2-6dee47457a0d
       X-Kong-Upstream-Latency:
-      - '174'
+      - '91'
       X-Kong-Proxy-Latency:
       - '0'
       Expires:
-      - Fri, 09 Jun 2017 17:38:31 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Cache-Control:
       - max-age=0, no-cache, no-store
       Pragma:
       - no-cache
       Date:
-      - Fri, 09 Jun 2017 17:38:31 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Content-Length:
       - '2204'
       Connection:
@@ -55,9 +55,9 @@ http_interactions:
       string: |-
         {
           "basicInfo" : {
-            "id" : "2c92a0fd5c832adb015c8def9fd9081c",
+            "id" : "2c92a0fc5d8298f6015da36b14df1d04",
             "name" : "Test Account",
-            "accountNumber" : "Z00324059",
+            "accountNumber" : "Z00324067",
             "balance" : 0E-9,
             "lastInvoiceDate" : null,
             "lastPaymentDate" : null,
@@ -87,7 +87,7 @@ http_interactions:
             "DellAffinityNo__c" : null,
             "ACHVerificationTimestamp__c" : null,
             "defaultPaymentMethod" : {
-              "id" : "2c92a0fd5c832adb015c8def9fff0822",
+              "id" : "2c92a0fc5d8298f6015da36b14f31d0a",
               "paymentMethodType" : "CreditCard",
               "creditCardNumber" : "************1111",
               "creditCardExpirationMonth" : 12,
@@ -96,7 +96,7 @@ http_interactions:
             }
           },
           "billToContact" : {
-            "id" : "2c92a0fd5c832adb015c8def9fe5081d",
+            "id" : "2c92a0fc5d8298f6015da36b14e21d05",
             "firstName" : "Test",
             "lastName" : "User",
             "address1" : null,
@@ -113,7 +113,7 @@ http_interactions:
             "State2__c" : null
           },
           "soldToContact" : {
-            "id" : "2c92a0fd5c832adb015c8def9fed081f",
+            "id" : "2c92a0fc5d8298f6015da36b14e91d07",
             "firstName" : "Test",
             "lastName" : "User",
             "address1" : null,
@@ -137,5 +137,5 @@ http_interactions:
           "success" : true
         }
     http_version: 
-  recorded_at: Fri, 09 Jun 2017 17:38:31 GMT
+  recorded_at: Wed, 02 Aug 2017 14:48:10 GMT
 recorded_with: VCR 3.0.3

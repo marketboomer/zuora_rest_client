@@ -15,7 +15,7 @@ http_interactions:
       Accept-Encoding:
       - gzip,deflate
       Date:
-      - Fri, 09 Jun 2017 17:38:31 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Content-Type:
       - application/json
       Apiaccesskeyid:
@@ -32,28 +32,28 @@ http_interactions:
       Server:
       - kong/0.9.9
       X-Request-Id:
-      - 5c7bf3bb-9808-4343-9843-b3bac54d3445
+      - bf151689-f22f-4944-a60e-83b4b6770ba6
       X-Kong-Upstream-Latency:
-      - '363'
+      - '119'
       X-Kong-Proxy-Latency:
       - '0'
       Expires:
-      - Fri, 09 Jun 2017 17:38:31 GMT
+      - Wed, 02 Aug 2017 14:48:11 GMT
       Cache-Control:
       - max-age=0, no-cache, no-store
       Pragma:
       - no-cache
       Date:
-      - Fri, 09 Jun 2017 17:38:31 GMT
+      - Wed, 02 Aug 2017 14:48:11 GMT
       Content-Length:
       - '57'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"Success":true,"Id":"2c92a0fe5c7d8185015c8defa5374aa8"}
+      string: '{"Success":true,"Id":"2c92a0fc5d8298f5015da36b18a34507"}
 
 '
     http_version: 
-  recorded_at: Fri, 09 Jun 2017 17:38:31 GMT
+  recorded_at: Wed, 02 Aug 2017 14:48:11 GMT
 recorded_with: VCR 3.0.3

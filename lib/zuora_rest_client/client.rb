@@ -2,6 +2,7 @@ require 'zuora_rest_client/connection'
 require 'addressable/uri'
 require 'fire_poll'
 require 'base64'
+require 'date'
 
 module ZuoraRestClient
 
@@ -82,8 +83,10 @@ module ZuoraRestClient
       @connection.rest_post('/accounting-codes', request, zuora_version)
     end
 
-    def get_all_accounting_codes(zuora_version = nil)
-      @connection.rest_get('/accounting-codes', zuora_version)
+    def get_all_accounting_codes(query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse('/accounting-codes')
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def activate_accounting_code(accounting_code_id, zuora_version = nil)
@@ -124,8 +127,10 @@ module ZuoraRestClient
       @connection.rest_post('/accounting-periods', request, zuora_version)
     end
 
-    def get_all_accounting_periods(zuora_version = nil)
-      @connection.rest_get('/accounting-periods', zuora_version)
+    def get_all_accounting_periods(query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse('/accounting-periods')
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def get_accounting_period(accounting_period_id, zuora_version = nil)
@@ -273,8 +278,10 @@ module ZuoraRestClient
       @connection.rest_post(uri.to_s, payload, zuora_version, false)
     end
 
-    def view_attachment_list(associated_object_type, associated_object_key, zuora_version = nil)
-      @connection.rest_get("/attachments/#{associated_object_type}/#{associated_object_key}", zuora_version)
+    def view_attachment_list(associated_object_type, associated_object_key, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/attachments/#{associated_object_type}/#{associated_object_key}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def view_attachment(attachment_id, zuora_version = nil)
@@ -333,8 +340,10 @@ module ZuoraRestClient
     #                                                                            #
     ##############################################################################
 
-    def get_product_catalog(zuora_version = nil)
-      @connection.rest_get('/catalog/products', zuora_version)
+    def get_product_catalog(query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse('/catalog/products')
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def share_product_with_entities(product_id, request, zuora_version = nil)
@@ -441,24 +450,32 @@ module ZuoraRestClient
       @connection.rest_post("/creditmemos/#{credit_memo_id}/refund", request, zuora_version)
     end
 
-    def query_credit_memos_by_account(request, zuora_version = nil)
-      @connection.rest_post('/creditmemos/query', request, zuora_version)
+    def query_credit_memos_by_account(request, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse('/creditmemos/query')
+      uri.query_values = query_params
+      @connection.rest_post(uri.to_s, request, zuora_version)
     end
 
-    def get_credit_memo_parts(credit_memo_id, zuora_version = nil)
-      @connection.rest_get("/creditmemos/#{credit_memo_id}/parts", zuora_version)
+    def get_credit_memo_parts(credit_memo_id, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/creditmemos/#{credit_memo_id}/parts")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def apply_credit_memo(credit_memo_id, request, zuora_version = nil)
       @connection.rest_post("/creditmemos/#{credit_memo_id}/apply", request, zuora_version)
     end
 
-    def get_credit_memo_items(credit_memo_id, zuora_version = nil)
-      @connection.rest_get("/creditmemos/#{credit_memo_id}/items", zuora_version)
+    def get_credit_memo_items(credit_memo_id, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/creditmemos/#{credit_memo_id}/items")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
-    def get_credit_memo_part_items(credit_memo_id, part_id, zuora_version = nil)
-      @connection.rest_get("/creditmemos/#{credit_memo_id}/parts/#{part_id}/itemparts", zuora_version)
+    def get_credit_memo_part_items(credit_memo_id, part_id, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/creditmemos/#{credit_memo_id}/parts/#{part_id}/itemparts")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def unapply_credit_memo(credit_memo_id, zuora_version = nil)
@@ -477,8 +494,10 @@ module ZuoraRestClient
       @connection.rest_post('/creditmemos', request, zuora_version)
     end
 
-    def get_credit_memos(zuora_version = nil)
-      @connection.rest_get('/creditmemos', zuora_version)
+    def get_credit_memos(query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse('/creditmemos')
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def get_credit_memo_part(credit_memo_id, part_id, zuora_version = nil)
@@ -499,8 +518,20 @@ module ZuoraRestClient
     #                                                                            #
     ##############################################################################
 
-    def get_custom_exchange_rates(currency, zuora_version = nil)
-      @connection.rest_get("/custom-exchange-rates/#{currency}", zuora_version)
+    def get_custom_exchange_rates(currency, start_date, end_date, zuora_version = nil)
+      if start_date.is_a? Date
+        start_date = start_date.iso8601
+      elsif start_date.is_a? DateTime
+        start_date = start_date.to_date.iso8601
+      end
+      if end_date.is_a? Date
+        end_date = end_date.iso8601
+      elsif end_date.is_a? DateTime
+        end_date = end_date.to_date.iso8601
+      end
+      uri = Addressable::URI.parse("/custom-exchange-rates/#{currency}")
+      uri.query_values = { startDate: start_date, endDate: end_date }
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     ##############################################################################
@@ -521,16 +552,20 @@ module ZuoraRestClient
       @connection.rest_post("/debitmemos", request, zuora_version)
     end
 
-    def get_debit_memos(zuora_version = nil)
-      @connection.rest_get("/debitmemos", zuora_version)
+    def get_debit_memos(query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse('/debitmemos')
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def create_debit_memo_pdf(debit_memo_id, zuora_version = nil)
       @connection.rest_post("/debitmemos/#{debit_memo_id}/pdfs", nil, zuora_version)
     end
 
-    def get_debit_memo_items(debit_memo_id, zuora_version = nil)
-      @connection.rest_get("/debitmemos/#{debit_memo_id}/items", zuora_version)
+    def get_debit_memo_items(debit_memo_id, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/debitmemos/#{debit_memo_id}/items")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def cancel_debit_memo(debit_memo_id, zuora_version = nil)
@@ -646,8 +681,10 @@ module ZuoraRestClient
       @connection.rest_post('/entities', request, zuora_version)
     end
 
-    def get_entities(zuora_version = nil)
-      @connection.rest_get('/entities', zuora_version)
+    def get_entities(query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse('/entities')
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def update_entity(entity_id, request, zuora_version = nil)
@@ -672,8 +709,10 @@ module ZuoraRestClient
     #                                                                            #
     ##############################################################################
 
-    def get_entity_connections(zuora_version = nil)
-      @connection.rest_get('/entity-connections', zuora_version)
+    def get_entity_connections(query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse('/entity-connections')
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def initiate_entity_connection(request, zuora_version = nil)
@@ -808,9 +847,9 @@ module ZuoraRestClient
     #                                                                            #
     ##############################################################################
 
-    def get_hosted_pages(version_number = nil, zuora_version = nil)
+    def get_hosted_pages(query_params = {}, zuora_version = nil)
       uri = Addressable::URI.parse('/hostedpages')
-      uri.query_values = { version: version_number.to_s } if !version_number.nil?
+      uri.query_values = query_params
       @connection.rest_get(uri.to_s, zuora_version)
     end
 
@@ -1053,6 +1092,16 @@ module ZuoraRestClient
 
     ##############################################################################
     #                                                                            #
+    #  OAuth                                                                     #
+    #                                                                            #
+    ##############################################################################
+
+    def generate_oauth_token(request, zuora_version = nil)
+      @connection.rest_post('/oauth/token', request, zuora_version)
+    end
+
+    ##############################################################################
+    #                                                                            #
     #  Operations                                                                #
     #                                                                            #
     ##############################################################################
@@ -1117,8 +1166,10 @@ module ZuoraRestClient
       @connection.rest_post('/payment-methods/credit-cards', request, zuora_version)
     end
 
-    def get_payment_method(account_key, zuora_version = nil)
-      @connection.rest_get("/payment-methods/credit-cards/accounts/#{account_key}", zuora_version)
+    def get_payment_methods(account_key, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/payment-methods/credit-cards/accounts/#{account_key}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def update_payment_method(payment_method_id, request, zuora_version = nil)
@@ -1177,12 +1228,16 @@ module ZuoraRestClient
       @connection.rest_post("/payments/#{payment_id}/unapply", request, zuora_version)
     end
 
-    def get_payment_parts(payment_id, zuora_version = nil)
-      @connection.rest_get("/payments/#{payment_id}/parts", zuora_version)
+    def get_payment_parts(payment_id, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.new("/payments/#{payment_id}/parts")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
-    def get_payment_part_items(payment_id, part_id, zuora_version = nil)
-      @connection.rest_get("/payments/#{payment_id}/parts/#{part_id}/itemparts", zuora_version)
+    def get_payment_part_items(payment_id, part_id, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.new("/payments/#{payment_id}/parts/#{part_id}/itemparts")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def apply_payment(payment_id, request, zuora_version = nil)
@@ -1197,8 +1252,10 @@ module ZuoraRestClient
       @connection.rest_post('/payments', request, zuora_version)
     end
 
-    def get_all_payments(zuora_version = nil)
-      @connection.rest_get('/payments', zuora_version)
+    def get_all_payments(query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.new('/payments')
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def get_payment_part(payment_id, part_id, zuora_version = nil)
@@ -1451,12 +1508,16 @@ module ZuoraRestClient
       @connection.rest_put("/refunds/#{refund_id}", request, zuora_version)
     end
 
-    def get_refund_part_items(refund_id, refund_part_id, zuora_version = nil)
-      @connection.rest_get("/refunds/#{refund_id}/parts/#{refund_part_id}/itemparts", zuora_version)
+    def get_refund_part_items(refund_id, refund_part_id, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/refunds/#{refund_id}/parts/#{refund_part_id}/itemparts")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
-    def get_all_refunds(zuora_version = nil)
-      @connection.rest_get('/refunds', zuora_version)
+    def get_all_refunds(query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse('/refunds')
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def get_refund_parts(refund_id, zuora_version = nil)
@@ -1503,8 +1564,10 @@ module ZuoraRestClient
       @connection.rest_get("/revenue-events/#{event_number}", zuora_version)
     end
 
-    def get_revenue_event_for_revenue_schedule(revenue_schedule_number, zuora_version = nil)
-      @connection.rest_get("/revenue-events/revenue-schedules/#{revenue_schedule_number}", zuora_version)
+    def get_revenue_event_for_revenue_schedule(revenue_schedule_number, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/revenue-events/revenue-schedules/#{revenue_schedule_number}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     ##############################################################################
@@ -1513,20 +1576,26 @@ module ZuoraRestClient
     #                                                                            #
     ##############################################################################
 
-    def get_revenue_items_by_crs_number(crs_number, zuora_version = nil)
-      @connection.rest_get("/revenue-items/charge-revenue-summaries/#{crs_number}", zuora_version)
+    def get_revenue_items_by_crs_number(crs_number, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/revenue-items/charge-revenue-summaries/#{crs_number}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
-    def get_revenue_items_by_revenue_event_number(event_number, zuora_version = nil)
-      @connection.rest_get("/revenue-items/revenue-events/#{event_number}", zuora_version)
+    def get_revenue_items_by_revenue_event_number(event_number, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/revenue-items/revenue-events/#{event_number}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def update_revenue_items_by_revenue_event_number(event_number, request, zuora_version = nil)
       @connection.rest_put("/revenue-items/revenue-events/#{event_number}", request, zuora_version)
     end
 
-    def get_revenue_items_by_revenue_schedule(revenue_schedule_number, zuora_version = nil)
-      @connection.rest_get("/revenue-items/revenue-schedules/#{revenue_schedule_number}", zuora_version)
+    def get_revenue_items_by_revenue_schedule(revenue_schedule_number, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/revenue-items/revenue-schedules/#{revenue_schedule_number}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def update_revenue_items_by_revenue_schedule(revenue_schedule_number, request, zuora_version = nil)
@@ -1577,8 +1646,10 @@ module ZuoraRestClient
       @connection.rest_post("/revenue-schedules/subscription-charges/#{charge_id}", request, zuora_version)
     end
 
-    def get_revenue_schedule_by_subscription_charge(charge_id, zuora_version = nil)
-      @connection.rest_get("/revenue-schedules/subscription-charges/#{charge_id}", zuora_version)
+    def get_revenue_schedule_by_subscription_charge(charge_id, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/revenue-schedules/subscription-charges/#{charge_id}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def distribute_revenue_across_accounting_periods(revenue_schedule_number, request, zuora_version = nil)
@@ -1633,8 +1704,10 @@ module ZuoraRestClient
       @connection.rest_get("/revenue-schedules/debit-memo-items/#{debit_memo_item_id}", zuora_version)
     end
 
-    def get_all_revenue_schedules_of_product_charges(charge_id, account_id, zuora_version = nil)
-      @connection.rest_get("/revenue-schedules/product-charges/#{charge_id}/#{account_id}", zuora_version)
+    def get_all_revenue_schedules_of_product_charges(charge_id, account_id, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/revenue-schedules/product-charges/#{charge_id}/#{account_id}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     ##############################################################################
@@ -1691,20 +1764,26 @@ module ZuoraRestClient
       @connection.rest_post('/subscriptions', request, zuora_version)
     end
 
-    def get_subscriptions_by_account(account_key, zuora_version = nil)
-      @connection.rest_get("/subscriptions/accounts/#{account_key}", zuora_version)
+    def get_subscriptions_by_account(account_key, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/subscriptions/accounts/#{account_key}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def update_subscription(subscription_key, request, zuora_version = nil)
       @connection.rest_put("/subscriptions/#{subscription_key}", request, zuora_version)
     end
 
-    def get_subscription_by_key(subscription_key, zuora_version = nil)
-      @connection.rest_get("/subscriptions/#{subscription_key}", zuora_version)
+    def get_subscription_by_key(subscription_key, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/subscriptions/#{subscription_key}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
-    def get_subscription_by_key_and_version(subscription_key, version, zuora_version = nil)
-      @connection.rest_get("/subscriptions/#{subscription_key}/versions/#{version}", zuora_version)
+    def get_subscription_by_key_and_version(subscription_key, version, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/subscriptions/#{subscription_key}/versions/#{version}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def renew_subscription(subscription_key, request, zuora_version = nil)
@@ -1723,7 +1802,9 @@ module ZuoraRestClient
       @connection.rest_put("/subscriptions/#{subscription_key}/suspend", request, zuora_version)
     end
 
-    def retrieve_subscription_object(subscription_id, zuora_version = nil)
+    def retrieve_subscription_object(subscription_id, fields = nil, zuora_version = nil)
+      uri = Addressable::URI.parse("/object/subscription/#{subscription_id}")
+      uri.query_values = { fields: fields.to_s } if !fields.nil?
       @connection.rest_get("/object/subscription/#{subscription_id}", zuora_version)
     end
 
@@ -1745,8 +1826,10 @@ module ZuoraRestClient
       @connection.rest_post('/journal-entries', request, zuora_version)
     end
 
-    def get_all_summary_journal_entries_for_journal_run(journal_run_number, zuora_version = nil)
-      @connection.rest_get("/journal-entries/journal-runs/#{journal_run_number}", zuora_version)
+    def get_all_summary_journal_entries_for_journal_run(journal_run_number, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/journal-entries/journal-runs/#{journal_run_number}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def get_summary_journal_entry(journal_entry_number, zuora_version = nil)
@@ -1815,12 +1898,16 @@ module ZuoraRestClient
     #                                                                            #
     ##############################################################################
 
-    def get_invoice_transactions(account_key, zuora_version = nil)
-      @connection.rest_get("/transactions/invoices/accounts/#{account_key}", zuora_version)
+    def get_invoice_transactions(account_key, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/transactions/invoices/accounts/#{account_key}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
-    def get_payment_transactions(account_key, zuora_version = nil)
-      @connection.rest_get("/transactions/payments/accounts/#{account_key}", zuora_version)
+    def get_payment_transactions(account_key, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/transactions/payments/accounts/#{account_key}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     ##############################################################################
@@ -1858,8 +1945,10 @@ module ZuoraRestClient
       @connection.rest_post('/usage', payload, zuora_version, false)
     end
 
-    def get_usage(account_key, zuora_version = nil)
-      @connection.rest_get("/usage/accounts/#{account_key}", zuora_version)
+    def get_usage(account_key, query_params = {}, zuora_version = nil)
+      uri = Addressable::URI.parse("/usage/accounts/#{account_key}")
+      uri.query_values = query_params
+      @connection.rest_get(uri.to_s, zuora_version)
     end
 
     def create_usage_object(request, zuora_version = nil)

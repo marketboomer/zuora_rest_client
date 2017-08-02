@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://rest.zuora.com/v1/object/account/2c92a0fd5c832adb015c8def9fd9081c
+    uri: https://rest.zuora.com/v1/object/account/2c92a0fc5d8298f6015da36b14df1d04
     body:
       encoding: UTF-8
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       Accept-Encoding:
       - gzip,deflate
       Date:
-      - Fri, 09 Jun 2017 17:38:32 GMT
+      - Wed, 02 Aug 2017 14:48:11 GMT
       Content-Type:
       - application/json
       Apiaccesskeyid:
@@ -31,33 +31,33 @@ http_interactions:
       Server:
       - kong/0.9.9
       X-Request-Id:
-      - 13ee5884-cbc3-4803-8948-db99ac4436fc
+      - 493033c5-b69c-4dc5-8aea-24a2fa3430e2
       X-Kong-Upstream-Latency:
-      - '262'
+      - '220'
       X-Kong-Proxy-Latency:
       - '0'
       Expires:
-      - Fri, 09 Jun 2017 17:38:32 GMT
+      - Wed, 02 Aug 2017 14:48:12 GMT
       Cache-Control:
       - max-age=0, no-cache, no-store
       Pragma:
       - no-cache
       Date:
-      - Fri, 09 Jun 2017 17:38:32 GMT
+      - Wed, 02 Aug 2017 14:48:12 GMT
       Content-Length:
       - '57'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"2c92a0fd5c832adb015c8def9fd9081c","success":true}
+      string: '{"id":"2c92a0fc5d8298f6015da36b14df1d04","success":true}
 
 '
     http_version: 
-  recorded_at: Fri, 09 Jun 2017 17:38:32 GMT
+  recorded_at: Wed, 02 Aug 2017 14:48:12 GMT
 - request:
     method: get
-    uri: https://rest.zuora.com/v1/object/account/2c92a0fd5c832adb015c8def9fd9081c
+    uri: https://rest.zuora.com/v1/object/account/2c92a0fc5d8298f6015da36b14df1d04
     body:
       encoding: UTF-8
       string: ''
@@ -69,7 +69,7 @@ http_interactions:
       Accept-Encoding:
       - gzip,deflate
       Date:
-      - Fri, 09 Jun 2017 17:38:32 GMT
+      - Wed, 02 Aug 2017 14:48:12 GMT
       Content-Type:
       - application/json
       Apiaccesskeyid:
@@ -86,19 +86,19 @@ http_interactions:
       Server:
       - kong/0.9.9
       X-Request-Id:
-      - 5a5b0781-f65c-463b-a032-71e7b4ff47a8
+      - e26bbf36-5d3a-49c0-8cd5-cb8ab6832942
       X-Kong-Upstream-Latency:
-      - '84'
+      - '2632'
       X-Kong-Proxy-Latency:
       - '0'
       Expires:
-      - Fri, 09 Jun 2017 17:38:33 GMT
+      - Wed, 02 Aug 2017 14:48:14 GMT
       Cache-Control:
       - max-age=0, no-cache, no-store
       Pragma:
       - no-cache
       Date:
-      - Fri, 09 Jun 2017 17:38:33 GMT
+      - Wed, 02 Aug 2017 14:48:14 GMT
       Content-Length:
       - '36'
       Connection:
@@ -109,10 +109,10 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Fri, 09 Jun 2017 17:38:33 GMT
+  recorded_at: Wed, 02 Aug 2017 14:48:14 GMT
 - request:
     method: delete
-    uri: https://rest.zuora.com/v1/object/account/2c92a0fe5c7d8185015c8defa5374aa8
+    uri: https://rest.zuora.com/v1/object/account/2c92a0fc5d8298f5015da36b18a34507
     body:
       encoding: UTF-8
       string: ''
@@ -124,7 +124,7 @@ http_interactions:
       Accept-Encoding:
       - gzip,deflate
       Date:
-      - Fri, 09 Jun 2017 17:38:33 GMT
+      - Wed, 02 Aug 2017 14:48:14 GMT
       Content-Type:
       - application/json
       Apiaccesskeyid:
@@ -141,33 +141,33 @@ http_interactions:
       Server:
       - kong/0.9.9
       X-Request-Id:
-      - 5a6fc2fc-2b07-46fd-853a-35c61b8fc770
+      - a08578f2-1192-4a2c-ac5a-6af32390ae81
       X-Kong-Upstream-Latency:
-      - '200'
+      - '249'
       X-Kong-Proxy-Latency:
       - '0'
       Expires:
-      - Fri, 09 Jun 2017 17:38:33 GMT
+      - Wed, 02 Aug 2017 14:48:15 GMT
       Cache-Control:
       - max-age=0, no-cache, no-store
       Pragma:
       - no-cache
       Date:
-      - Fri, 09 Jun 2017 17:38:33 GMT
+      - Wed, 02 Aug 2017 14:48:15 GMT
       Content-Length:
       - '57'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"2c92a0fe5c7d8185015c8defa5374aa8","success":true}
+      string: '{"id":"2c92a0fc5d8298f5015da36b18a34507","success":true}
 
 '
     http_version: 
-  recorded_at: Fri, 09 Jun 2017 17:38:33 GMT
+  recorded_at: Wed, 02 Aug 2017 14:48:15 GMT
 - request:
     method: get
-    uri: https://rest.zuora.com/v1/object/account/2c92a0fe5c7d8185015c8defa5374aa8
+    uri: https://rest.zuora.com/v1/object/account/2c92a0fc5d8298f5015da36b18a34507
     body:
       encoding: UTF-8
       string: ''
@@ -179,7 +179,7 @@ http_interactions:
       Accept-Encoding:
       - gzip,deflate
       Date:
-      - Fri, 09 Jun 2017 17:38:33 GMT
+      - Wed, 02 Aug 2017 14:48:15 GMT
       Content-Type:
       - application/json
       Apiaccesskeyid:
@@ -196,19 +196,19 @@ http_interactions:
       Server:
       - kong/0.9.9
       X-Request-Id:
-      - 64cf96fb-47c0-49f1-9df3-28fd8f714843
+      - 7a8af6a0-6a18-42db-a393-5634960806c0
       X-Kong-Upstream-Latency:
-      - '289'
+      - '96'
       X-Kong-Proxy-Latency:
       - '0'
       Expires:
-      - Fri, 09 Jun 2017 17:38:33 GMT
+      - Wed, 02 Aug 2017 14:48:15 GMT
       Cache-Control:
       - max-age=0, no-cache, no-store
       Pragma:
       - no-cache
       Date:
-      - Fri, 09 Jun 2017 17:38:33 GMT
+      - Wed, 02 Aug 2017 14:48:15 GMT
       Content-Length:
       - '36'
       Connection:
@@ -219,5 +219,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Fri, 09 Jun 2017 17:38:33 GMT
+  recorded_at: Wed, 02 Aug 2017 14:48:15 GMT
 recorded_with: VCR 3.0.3

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: put
-    uri: https://rest.zuora.com/v1/accounts/2c92a0fd5c832adb015c8def9fd9081c
+    uri: https://rest.zuora.com/v1/accounts/2c92a0fc5d8298f6015da36b14df1d04
     body:
       encoding: UTF-8
       string: '{"batch":"Batch2"}'
@@ -14,7 +14,7 @@ http_interactions:
       Accept-Encoding:
       - gzip,deflate
       Date:
-      - Fri, 09 Jun 2017 17:38:31 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Content-Type:
       - application/json
       Apiaccesskeyid:
@@ -31,19 +31,19 @@ http_interactions:
       Server:
       - Zuora App
       X-Request-Id:
-      - 5dadccff-aa8f-4cb1-abb6-87363a2ea325
+      - b6509090-8d62-4d09-ad0c-c3cabd849040
       X-Kong-Upstream-Latency:
-      - '69'
+      - '94'
       X-Kong-Proxy-Latency:
       - '0'
       Expires:
-      - Fri, 09 Jun 2017 17:38:31 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Cache-Control:
       - max-age=0, no-cache, no-store
       Pragma:
       - no-cache
       Date:
-      - Fri, 09 Jun 2017 17:38:31 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Content-Length:
       - '22'
       Connection:
@@ -57,10 +57,10 @@ http_interactions:
           "success" : true
         }
     http_version: 
-  recorded_at: Fri, 09 Jun 2017 17:38:31 GMT
+  recorded_at: Wed, 02 Aug 2017 14:48:10 GMT
 - request:
     method: get
-    uri: https://rest.zuora.com/v1/accounts/2c92a0fd5c832adb015c8def9fd9081c
+    uri: https://rest.zuora.com/v1/accounts/2c92a0fc5d8298f6015da36b14df1d04
     body:
       encoding: UTF-8
       string: ''
@@ -72,7 +72,7 @@ http_interactions:
       Accept-Encoding:
       - gzip,deflate
       Date:
-      - Fri, 09 Jun 2017 17:38:31 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Content-Type:
       - application/json
       Apiaccesskeyid:
@@ -89,19 +89,19 @@ http_interactions:
       Server:
       - Zuora App
       X-Request-Id:
-      - f868bc70-78b9-4bce-8008-c9b7b9d61877
+      - 58ba0d7d-92a9-4d9d-882f-7526f4009e8b
       X-Kong-Upstream-Latency:
       - '61'
       X-Kong-Proxy-Latency:
       - '0'
       Expires:
-      - Fri, 09 Jun 2017 17:38:31 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Cache-Control:
       - max-age=0, no-cache, no-store
       Pragma:
       - no-cache
       Date:
-      - Fri, 09 Jun 2017 17:38:31 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Content-Length:
       - '2305'
       Connection:
@@ -113,9 +113,9 @@ http_interactions:
       string: |-
         {
           "basicInfo" : {
-            "id" : "2c92a0fd5c832adb015c8def9fd9081c",
+            "id" : "2c92a0fc5d8298f6015da36b14df1d04",
             "name" : "Test Account",
-            "accountNumber" : "Z00324059",
+            "accountNumber" : "Z00324067",
             "notes" : null,
             "status" : "Active",
             "crmId" : null,
@@ -203,5 +203,5 @@ http_interactions:
           "success" : true
         }
     http_version: 
-  recorded_at: Fri, 09 Jun 2017 17:38:31 GMT
+  recorded_at: Wed, 02 Aug 2017 14:48:10 GMT
 recorded_with: VCR 3.0.3

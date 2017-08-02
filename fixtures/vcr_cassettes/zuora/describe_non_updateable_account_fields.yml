@@ -14,7 +14,7 @@ http_interactions:
       Accept-Encoding:
       - gzip,deflate
       Date:
-      - Fri, 09 Jun 2017 17:38:26 GMT
+      - Wed, 02 Aug 2017 14:48:09 GMT
       Content-Type:
       - application/json
       Apiaccesskeyid:
@@ -33,9 +33,9 @@ http_interactions:
       Server:
       - Zuora App
       X-Request-Id:
-      - e7f63f92-f3d4-485c-8a34-0efaa1c133e5
+      - e8a63d04-28a9-425a-8ce9-6539fe7ae9e3
       X-Kong-Upstream-Latency:
-      - '62'
+      - '85'
       X-Kong-Proxy-Latency:
       - '0'
       Vary:
@@ -43,13 +43,13 @@ http_interactions:
       Content-Encoding:
       - gzip
       Expires:
-      - Fri, 09 Jun 2017 17:38:26 GMT
+      - Wed, 02 Aug 2017 14:48:09 GMT
       Cache-Control:
       - max-age=0, no-cache, no-store
       Pragma:
       - no-cache
       Date:
-      - Fri, 09 Jun 2017 17:38:26 GMT
+      - Wed, 02 Aug 2017 14:48:09 GMT
       Content-Length:
       - '2689'
       Connection:
@@ -573,5 +573,5 @@ http_interactions:
         \        <name>SoldToContact</name>\r\n         <label>Sold To</label>    \r\n
         \     </object>\r\n   </related-objects>\r\n</object>\r\n\r\n"
     http_version: 
-  recorded_at: Fri, 09 Jun 2017 17:38:26 GMT
+  recorded_at: Wed, 02 Aug 2017 14:48:09 GMT
 recorded_with: VCR 3.0.3

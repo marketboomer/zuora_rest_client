@@ -38,6 +38,14 @@ For a sandbox tenant, you can specify the following:
 client = ZuoraRestClient::Client.new(username, password, :api_sandbox)  # Create an api sandbox client
 ```
 
+For a "serivces*NNN*" tenant, where *NNN* is the number that follows "services", you may also need an 
+API proxy port number to invoke calls to `/action/*` and `/object/*`.  Assuming your services tenant is `services000`
+and your API proxy port number is `1234`, you can specify the following:
+
+```ruby
+client = ZuoraRestClient::Client.new(username, password, :services000, api_proxy_port: 1234)  # Create an api services000 client
+```
+
 Call one of the client methods.  For example, to create an account:
 ```ruby
 account_to_create = {

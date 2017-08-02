@@ -16,7 +16,7 @@ http_interactions:
       Accept-Encoding:
       - gzip,deflate
       Date:
-      - Fri, 09 Jun 2017 17:38:30 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Content-Type:
       - application/json
       Apiaccesskeyid:
@@ -33,19 +33,19 @@ http_interactions:
       Server:
       - Zuora App
       X-Request-Id:
-      - 7ab05a60-723b-4a2e-9f5b-fa352908261f
+      - f3ecba32-8807-4312-8891-905029229c0d
       X-Kong-Upstream-Latency:
-      - '188'
+      - '145'
       X-Kong-Proxy-Latency:
       - '0'
       Expires:
-      - Fri, 09 Jun 2017 17:38:30 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Cache-Control:
       - max-age=0, no-cache, no-store
       Pragma:
       - no-cache
       Date:
-      - Fri, 09 Jun 2017 17:38:30 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Content-Length:
       - '165'
       Connection:
@@ -57,10 +57,10 @@ http_interactions:
       string: |-
         {
           "success" : true,
-          "accountId" : "2c92a0fd5c832adb015c8def9fd9081c",
-          "accountNumber" : "Z00324059",
-          "paymentMethodId" : "2c92a0fd5c832adb015c8def9fff0822"
+          "accountId" : "2c92a0fc5d8298f6015da36b14df1d04",
+          "accountNumber" : "Z00324067",
+          "paymentMethodId" : "2c92a0fc5d8298f6015da36b14f31d0a"
         }
     http_version: 
-  recorded_at: Fri, 09 Jun 2017 17:38:30 GMT
+  recorded_at: Wed, 02 Aug 2017 14:48:10 GMT
 recorded_with: VCR 3.0.3

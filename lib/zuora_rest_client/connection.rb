@@ -17,7 +17,8 @@ module ZuoraRestClient
         entity_name: nil,
         logger: Logger.new($stdout),
         log_level: :error,
-        log: true }
+        log: true,
+        api_proxy_port: nil }
 
     def initialize(username, password, environment = :production, options = {})
       @username = username
@@ -45,7 +46,7 @@ module ZuoraRestClient
     end
 
     def rest_get(path, zuora_version = nil)
-      response = rest_connection.get do |request|
+      response = rest_connection(use_api_proxy?(path)).get do |request|
         request.url [ ZUORA_REST_MAJOR_VERSION, path ].join('/')
         request.headers = rest_headers(zuora_version)
       end
@@ -78,7 +79,7 @@ module ZuoraRestClient
     end
 
     def rest_post(path, post_data = nil, zuora_version = nil, is_json = true)
-      response = rest_connection.post do |request|
+      response = rest_connection(use_api_proxy?(path)).post do |request|
         request.url [ ZUORA_REST_MAJOR_VERSION, path ].join('/')
         request.headers = rest_headers(zuora_version)
         request.body = MultiJson.dump(post_data) if !post_data.nil? && is_json
@@ -88,7 +89,7 @@ module ZuoraRestClient
     end
 
     def rest_put(path, put_data = nil, zuora_version = nil, is_json = true)
-      response = rest_connection.put do |request|
+      response = rest_connection(use_api_proxy?(path)).put do |request|
         request.url [ ZUORA_REST_MAJOR_VERSION, path ].join('/')
         request.headers = rest_headers(zuora_version)
         request.body = MultiJson.dump(put_data) if !put_data.nil? && is_json
@@ -98,7 +99,7 @@ module ZuoraRestClient
     end
 
     def rest_delete(path, zuora_version = nil)
-      response = rest_connection.delete do |request|
+      response = rest_connection(use_api_proxy?(path)).delete do |request|
         request.url [ ZUORA_REST_MAJOR_VERSION, path ].join('/')
         request.headers = rest_headers(zuora_version)
       end
@@ -153,8 +154,13 @@ module ZuoraRestClient
       end
     end
 
-    def rest_connection
-      Faraday.new(url: zuora_endpoint.rest) do |faraday|
+    def rest_connection(use_api_proxy = false)
+      rest_endpoint_uri = Addressable::URI.parse(zuora_endpoint.rest)
+      if use_api_proxy
+        rest_endpoint_uri.path = '/'
+        rest_endpoint_uri.port = @options[:api_proxy_port] || 443
+      end
+      Faraday.new(url: rest_endpoint_uri.to_s) do |faraday|
         faraday.use FaradayMiddleware::FollowRedirects
         faraday.request :multipart
         faraday.response :detailed_logger, logger
@@ -170,6 +176,11 @@ module ZuoraRestClient
       headers['entityName'] = @options[:entity_name] if !@options[:entity_name].nil?
       headers['zuora-version'] = zuora_version if !zuora_version.nil?
       headers
+    end
+
+    def use_api_proxy?(path)
+      @environment.to_s.start_with?('services') &&
+          (path.start_with?('/action/') || path.start_with?('/object/'))
     end
 
     def zuora_endpoint

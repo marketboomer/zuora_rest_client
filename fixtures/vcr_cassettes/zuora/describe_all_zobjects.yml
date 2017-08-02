@@ -14,7 +14,7 @@ http_interactions:
       Accept-Encoding:
       - gzip,deflate
       Date:
-      - Fri, 09 Jun 2017 17:38:30 GMT
+      - Wed, 02 Aug 2017 14:48:09 GMT
       Content-Type:
       - application/json
       Apiaccesskeyid:
@@ -33,9 +33,9 @@ http_interactions:
       Server:
       - Zuora App
       X-Request-Id:
-      - b61beccb-bb3d-4a0e-8cb9-37405e26b434
+      - ae8fb6ab-41a5-4971-aa20-c95700c735a0
       X-Kong-Upstream-Latency:
-      - '31'
+      - '52'
       X-Kong-Proxy-Latency:
       - '0'
       Vary:
@@ -43,13 +43,13 @@ http_interactions:
       Content-Encoding:
       - gzip
       Expires:
-      - Fri, 09 Jun 2017 17:38:30 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Cache-Control:
       - max-age=0, no-cache, no-store
       Pragma:
       - no-cache
       Date:
-      - Fri, 09 Jun 2017 17:38:30 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Content-Length:
       - '1066'
       Connection:
@@ -172,5 +172,5 @@ http_interactions:
         \    <label>Updater Batch</label>\r\n</object>\r\n\r\n\r\n\r\n\t<object href=\"https://api.zuora.com/rest/api/describe/Usage\">\r\n
         \    <name>Usage</name>\r\n     <label>Usage</label>\r\n</object>\r\n\r\n\r\n\r\n</objects>\r\n"
     http_version: 
-  recorded_at: Fri, 09 Jun 2017 17:38:30 GMT
+  recorded_at: Wed, 02 Aug 2017 14:48:10 GMT
 recorded_with: VCR 3.0.3

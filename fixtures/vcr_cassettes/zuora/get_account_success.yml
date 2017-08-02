@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://rest.zuora.com/v1/accounts/2c92a0fd5c832adb015c8def9fd9081c
+    uri: https://rest.zuora.com/v1/accounts/2c92a0fc5d8298f6015da36b14df1d04
     body:
       encoding: UTF-8
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
       Accept-Encoding:
       - gzip,deflate
       Date:
-      - Fri, 09 Jun 2017 17:38:30 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Content-Type:
       - application/json
       Apiaccesskeyid:
@@ -31,19 +31,19 @@ http_interactions:
       Server:
       - Zuora App
       X-Request-Id:
-      - 2256a6e6-e413-4b67-b23f-3aa3b97e90dc
+      - e38f391a-5b8c-4775-bf68-dbdbc07b3e16
       X-Kong-Upstream-Latency:
       - '59'
       X-Kong-Proxy-Latency:
       - '0'
       Expires:
-      - Fri, 09 Jun 2017 17:38:30 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Cache-Control:
       - max-age=0, no-cache, no-store
       Pragma:
       - no-cache
       Date:
-      - Fri, 09 Jun 2017 17:38:30 GMT
+      - Wed, 02 Aug 2017 14:48:10 GMT
       Content-Length:
       - '2305'
       Connection:
@@ -55,9 +55,9 @@ http_interactions:
       string: |-
         {
           "basicInfo" : {
-            "id" : "2c92a0fd5c832adb015c8def9fd9081c",
+            "id" : "2c92a0fc5d8298f6015da36b14df1d04",
             "name" : "Test Account",
-            "accountNumber" : "Z00324059",
+            "accountNumber" : "Z00324067",
             "notes" : null,
             "status" : "Active",
             "crmId" : null,
@@ -145,5 +145,5 @@ http_interactions:
           "success" : true
         }
     http_version: 
-  recorded_at: Fri, 09 Jun 2017 17:38:30 GMT
+  recorded_at: Wed, 02 Aug 2017 14:48:10 GMT
 recorded_with: VCR 3.0.3
