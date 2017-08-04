@@ -61,7 +61,7 @@ module ZuoraRestClient
       endpoint_uri = Addressable::URI.parse(zuora_endpoint.rest)
       Net::HTTP.start(endpoint_uri.normalized_host, endpoint_uri.normalized_port,
           use_ssl: endpoint_uri.normalized_scheme == 'https') do |http|
-        request = Net::HTTP::Get.new path
+        request = Net::HTTP::Get.new [ endpoint_uri.normalized_path, ZUORA_REST_MAJOR_VERSION, path ].join('/')
         rest_headers(zuora_version).each_pair do |header_key, header_value|
           request[header_key] = header_value
         end
@@ -159,7 +159,6 @@ module ZuoraRestClient
       if use_api_proxy
         rest_endpoint_uri.path = '/'
         rest_endpoint_uri.port = @options[:api_proxy_port] || 443
-        rest_post('/connections')
       end
       Faraday.new(url: rest_endpoint_uri.to_s) do |faraday|
         faraday.use FaradayMiddleware::FollowRedirects
