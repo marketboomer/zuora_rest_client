@@ -236,7 +236,7 @@ module ZuoraRestClient
       result = @connection.app_post('/apps/api/batch-query/', request)
       logger.debug "********* AQUA POST QUERY RESULT: #{result.inspect}"
 
-      raise "Error: #{result.message}" if result.status == 'Error'
+      raise "Error: #{result.message}" if result.status.downcase == 'error'
 
       if aqua_query_options[:wait_for_completed_result]
         poll_started = false
@@ -245,8 +245,8 @@ module ZuoraRestClient
           poll_started = true
           result = get_aqua_job_result(result.id)
           logger.debug "********* CURRENT AQUA JOB STATUS: #{result.inspect}"
-          raise "Error: #{result.message}" if result.status == 'Error'
-          result.status != 'submitted' && result.status.end_with?('ed')
+          raise "Error: #{result.message}" if result.status.downcase == 'error'
+          result.status.downcase != 'submitted' && result.status.downcase.end_with?('ed')
         end
 
         logger.debug "********* FINAL AQUA JOB STATUS: #{result.inspect}"
@@ -1994,8 +1994,8 @@ module ZuoraRestClient
     private
 
     def logger
-      result = @options[:logger] || Logger.new($stdout)
-      log_level = (@options[:log_level] || :info).to_s.upcase
+      result = @client_options[:logger] || Logger.new($stdout)
+      log_level = (@client_options[:log_level] || :info).to_s.upcase
       result.level = Logger::INFO
       result.level = Logger.const_get(log_level) if Logger.const_defined?(log_level)
       result

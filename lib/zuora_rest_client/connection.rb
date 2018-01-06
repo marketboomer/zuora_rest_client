@@ -36,7 +36,7 @@ module ZuoraRestClient
     end
 
     def app_post(path, post_data = nil, is_json = true)
-      response = app_connection.get do |request|
+      response = app_connection.post do |request|
         request.url path
         request.headers = app_headers
         request.body = MultiJson.dump(post_data) if !post_data.nil? && is_json
@@ -196,7 +196,7 @@ module ZuoraRestClient
         rest_endpoint = "#{@environment[:rest]}"
         app_endpoint = "#{@environment[:app]}/apps/api"
       else
-        raise 'Possible values for environment are: :production, :sandbox, :servicesNNN or a hash with base URL values for :rest and :app.'
+        raise 'Possible values for environment are: :production, :api_sandbox, :servicesNNN or a hash with base URL values for :rest and :app.'
       end
       OpenStruct.new({ rest: rest_endpoint, app: app_endpoint })
     end
