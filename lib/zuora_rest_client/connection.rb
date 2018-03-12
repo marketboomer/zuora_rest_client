@@ -155,7 +155,7 @@ module ZuoraRestClient
     end
 
     def response_headers(response)
-      {response_code: response.status,
+      {response_status: response.status,
        response_headers: response.response_headers,
        reason_phrase: response.reason_phrase}
     end
