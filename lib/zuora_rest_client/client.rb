@@ -536,6 +536,16 @@ module ZuoraRestClient
 
     ##############################################################################
     #                                                                            #
+    #  Custom Fields                                                             #
+    #                                                                            #
+    ##############################################################################
+
+    def get_custom_field_definition_in_namespace(namespace, type, zuora_version = nil)
+      @connection.rest_get("/fields/#{namespace}/definitions/#{type}", zuora_version)
+    end
+
+    ##############################################################################
+    #                                                                            #
     #  Debit Memos                                                               #
     #                                                                            #
     ##############################################################################
