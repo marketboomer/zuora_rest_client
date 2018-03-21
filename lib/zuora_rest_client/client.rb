@@ -541,7 +541,7 @@ module ZuoraRestClient
     ##############################################################################
 
     def get_custom_field_definition_in_namespace(namespace, type, zuora_version = nil)
-      @connection.rest_get("/fields/#{namespace}/definitions/#{type}", zuora_version)
+      @connection.rest_get("/fields/#{namespace}/definitions/#{type}", zuora_version, false, @connection.oauth_token)
     end
 
     ##############################################################################
