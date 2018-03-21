@@ -45,10 +45,10 @@ module ZuoraRestClient
       process_response(response)
     end
 
-    def rest_get(path, zuora_version = nil)
+    def rest_get(path, zuora_version = nil, use_major_version = true, bearer_token = nil)
       response = rest_connection(use_api_proxy?(path)).get do |request|
-        request.url [ ZUORA_REST_MAJOR_VERSION, path ].join('/')
-        request.headers = rest_headers(zuora_version)
+        request.url [ (use_major_version ? ZUORA_REST_MAJOR_VERSION : nil), path ].compact.join('/')
+        request.headers = rest_headers(zuora_version, bearer_token)
       end
       process_response(response)
     end
@@ -104,6 +104,19 @@ module ZuoraRestClient
         request.headers = rest_headers(zuora_version)
       end
       process_response(response)
+    end
+
+    def oauth_token
+      path = '/oauth/token'
+      data = { client_id: @options[:client_id],
+               client_secret: @options[:client_secret],
+               grant_type: :client_credentials }
+      response = rest_connection(use_api_proxy?(path)).post do |request|
+        request.url path
+        request.headers = oauth_headers
+        request.body = URI::encode_www_form(data)
+      end
+      process_response(response).access_token
     end
 
     private
@@ -174,14 +187,19 @@ module ZuoraRestClient
       end
     end
 
-    def rest_headers(zuora_version = nil)
+    def rest_headers(zuora_version = nil, bearer_token = nil)
       headers = { 'Content-Type' => 'application/json',
           'apiAccessKeyId' => @username,
           'apiSecretAccessKey' => @password }
       headers['entityId'] = @options[:entity_id] if !@options[:entity_id].nil?
       headers['entityName'] = @options[:entity_name] if !@options[:entity_name].nil?
       headers['zuora-version'] = zuora_version if !zuora_version.nil?
+      headers['Authorization'] = "Bearer #{bearer_token}" unless bearer_token.nil?
       headers
+    end
+
+    def oauth_headers
+      { 'Content-Type' => 'application/x-www-form-urlencoded' }
     end
 
     def use_api_proxy?(path)
